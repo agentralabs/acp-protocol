@@ -1,4 +1,4 @@
-# ACP — Agent Commerce Protocol
+# XAP — eXchange Agent Protocol
 
 **The open economic protocol for autonomous agents.**
 
@@ -9,13 +9,13 @@
 
 ---
 
-## What Is ACP?
+## What Is XAP?
 
-ACP (Agent Commerce Protocol) is an open standard that defines how autonomous AI agents identify themselves, negotiate terms, settle value, and prove what happened — without human involvement.
+XAP (eXchange Agent Protocol) is an open standard that defines how autonomous AI agents identify themselves, negotiate terms, settle value, and prove what happened — without human involvement.
 
 Today, agents can think. They can reason. They can execute tasks. But when two agents need to transact with each other — pay for compute, buy data, settle a service — there is no shared language for how that happens. Every system invents its own format. Nothing interoperates. Nothing is auditable.
 
-ACP fixes that.
+XAP fixes that.
 
 It defines five primitive objects that every agent commerce interaction maps to:
 
@@ -27,7 +27,7 @@ ExecutionReceipt     →  what happened and what was paid
 VerityReceipt        →  why it happened and can it be proven
 ```
 
-If your agent can produce and consume these five objects — it can transact with any other ACP-compatible agent, on any platform, with any model, in any settlement unit.
+If your agent can produce and consume these five objects — it can transact with any other XAP-compatible agent, on any platform, with any model, in any settlement unit.
 
 ---
 
@@ -43,7 +43,7 @@ Without a shared protocol:
 - Split revenue across multi-agent workflows is impossible to automate
 - Disputes have no deterministic resolution path
 
-ACP is the missing economic layer. It does not replace existing payment systems. It sits above them as a coordination and accountability standard that any settlement unit — fiat, stablecoin, or network credit — can plug into.
+XAP is the missing economic layer. It does not replace existing payment systems. It sits above them as a coordination and accountability standard that any settlement unit — fiat, stablecoin, or network credit — can plug into.
 
 ---
 
@@ -53,7 +53,7 @@ ACP is the missing economic layer. It does not replace existing payment systems.
 The permanent economic passport of an autonomous agent. Cryptographically anchored with Ed25519. Includes capability declarations in machine-readable schema, pricing structure (fixed, dynamic, auction, outcome-based), SLA guarantees, risk profile, and an append-only reputation ledger. An agent reads another agent's `AgentIdentity` and decides autonomously whether to hire it — no human involvement required.
 
 ### 2. `NegotiationContract`
-The terms of a proposed exchange. ACP uses exactly four states: `OFFER → COUNTER → ACCEPT → REJECT`. Every offer is time-bound. Conditional pricing is supported natively — "pay X if completed in 2 seconds, Y if 5 seconds." SLA is declared before execution begins. Every state transition is signed and permanently logged to both agents' histories.
+The terms of a proposed exchange. XAP uses exactly four states: `OFFER → COUNTER → ACCEPT → REJECT`. Every offer is time-bound. Conditional pricing is supported natively — "pay X if completed in 2 seconds, Y if 5 seconds." SLA is declared before execution begins. Every state transition is signed and permanently logged to both agents' histories.
 
 ### 3. `SettlementIntent`
 The escrow instruction. Funds are locked. The release condition is declared upfront. The verification method is specified — deterministic, probabilistic, or human-verified. Split rules for multi-agent workflows are declared at creation time. Every failure mode has a pre-declared outcome. No money ever sits in limbo. Idempotent by design — agents retry safely.
@@ -68,13 +68,13 @@ The truth primitive. Every significant decision in the settlement flow — condi
 
 ## How The Protocol Works
 
-Every ACP interaction follows one sequence:
+Every XAP interaction follows one sequence:
 
 ```
 REGISTER → NEGOTIATE → EXECUTE → SETTLE → AUDIT
 ```
 
-Every feature of every ACP-compatible system maps to one of these five steps. Nothing outside this sequence is part of ACP. Simplicity is a design constraint.
+Every feature of every XAP-compatible system maps to one of these five steps. Nothing outside this sequence is part of XAP. Simplicity is a design constraint.
 
 ### Negotiation States
 
@@ -110,7 +110,7 @@ ExecutionReceipt issued + VerityReceipt captured
 
 ## Schema Reference
 
-All five ACP primitive schemas live in `/acp/schemas`. They are JSON Schema (Draft 2020-12) documents, validated against the specification.
+All five XAP primitive schemas live in `/acp/schemas`. They are JSON Schema (Draft 2020-12) documents, validated against the specification.
 
 | Schema | File | Status |
 |---|---|---|
@@ -120,41 +120,41 @@ All five ACP primitive schemas live in `/acp/schemas`. They are JSON Schema (Dra
 | `ExecutionReceipt` | [`/acp/schemas/execution-receipt.json`](/acp/schemas/execution-receipt.json) | ✅ v0.1 Draft |
 | `VerityReceipt` | [`/acp/schemas/verity-receipt.json`](/acp/schemas/verity-receipt.json) | 🔄 In Progress |
 
-Each schema includes a working example showing a complete, valid object. Read the schema. You understand ACP.
+Each schema includes a working example showing a complete, valid object. Read the schema. You understand XAP.
 
 ---
 
-## What ACP Is Not
+## What XAP Is Not
 
-**ACP is not a payment processor.** It does not move money. It defines the coordination layer above payment systems. Stripe, USDC, and internal credit systems are all valid settlement units underneath ACP.
+**XAP is not a payment processor.** It does not move money. It defines the coordination layer above payment systems. Stripe, USDC, and internal credit systems are all valid settlement units underneath XAP.
 
-**ACP is not a blockchain protocol.** It does not require a chain. It can settle on-chain if desired but operates equally well on traditional financial infrastructure.
+**XAP is not a blockchain protocol.** It does not require a chain. It can settle on-chain if desired but operates equally well on traditional financial infrastructure.
 
-**ACP is not a marketplace.** It does not match buyers to sellers. It defines what happens after they find each other.
+**XAP is not a marketplace.** It does not match buyers to sellers. It defines what happens after they find each other.
 
-**ACP is not model-specific.** It does not care what model powers an agent. GPT-4, Claude, Gemini, Llama — any agent on any model can implement ACP.
+**XAP is not model-specific.** It does not care what model powers an agent. GPT-4, Claude, Gemini, Llama — any agent on any model can implement XAP.
 
-**ACP is not a vendor lock-in mechanism.** Any system can implement it. The spec is MIT licensed. The goal is for ACP to become the default assumption in agent commerce — not to lock anyone in.
+**XAP is not a vendor lock-in mechanism.** Any system can implement it. The spec is MIT licensed. The goal is for XAP to become the default assumption in agent commerce — not to lock anyone in.
 
 ---
 
 ## Relationship To Agentra Labs And Agentra Rail
 
-ACP is maintained by [Agentra Labs](https://www.agentralabs.tech) as an open contribution to the agent economy.
+XAP is maintained by [Agentra Labs](https://www.agentralabs.tech) as an open contribution to the agent economy.
 
 **Agentra Labs** builds the open-source cognitive substrate that makes agents persistent, trustworthy, and governable — memory, identity, planning, communication, and more. The Labs stack is what makes agents capable enough to transact.
 
-**Agentra Rail** is the production implementation of ACP — the commercial infrastructure layer where agents register, negotiate, settle, and audit at scale. Rail is what runs ACP in production with the reliability, speed, and correctness that enterprises depend on.
+**Agentra Rail** is the production implementation of XAP — the commercial infrastructure layer where agents register, negotiate, settle, and audit at scale. Rail is what runs XAP in production with the reliability, speed, and correctness that enterprises depend on.
 
 The relationship:
 
 ```
-ACP (this repo)     →  the open language everyone speaks
+XAP (this repo)     →  the open language everyone speaks
 Agentra Labs        →  the cognitive substrate that makes agents capable
-Agentra Rail        →  the production infrastructure ACP runs on
+Agentra Rail        →  the production infrastructure XAP runs on
 ```
 
-ACP belongs to the community. Agentra Rail is the reference implementation. You do not need Rail to implement ACP. But if you want production settlement, governance, Verity replay, and split settlement at scale — Rail is where you go.
+XAP belongs to the community. Agentra Rail is the reference implementation. You do not need Rail to implement XAP. But if you want production settlement, governance, Verity replay, and split settlement at scale — Rail is where you go.
 
 ---
 
@@ -162,9 +162,9 @@ ACP belongs to the community. Agentra Rail is the reference implementation. You 
 
 **Deterministic over ambiguous.** Every interaction has a defined outcome. Every failure mode has a pre-declared resolution. No money in limbo. No unresolved states.
 
-**Agent-native over human-friendly.** ACP is designed for LLMs and agents to consume autonomously. Machine-readable first. If an agent can read the spec and integrate without human help — the design is working.
+**Agent-native over human-friendly.** XAP is designed for LLMs and agents to consume autonomously. Machine-readable first. If an agent can read the spec and integrate without human help — the design is working.
 
-**Protocol over product.** ACP defines behavior, not implementation. Any system that produces and consumes the five primitive objects correctly is ACP-compatible.
+**Protocol over product.** XAP defines behavior, not implementation. Any system that produces and consumes the five primitive objects correctly is XAP-compatible.
 
 **Escrow over payment.** The core primitive is not "agent A pays agent B." It is "agent A releases funds to agent B when verifiable condition X is satisfied." This distinction is architectural.
 
@@ -176,15 +176,15 @@ ACP belongs to the community. Agentra Rail is the reference implementation. You 
 
 ## Versioning
 
-ACP uses semantic versioning. Breaking changes increment the major version. The current status is `v0.1 Draft` — open for community review and feedback before `v1.0` is locked.
+XAP uses semantic versioning. Breaking changes increment the major version. The current status is `v0.1 Draft` — open for community review and feedback before `v1.0` is locked.
 
-Backward compatibility is a first-class design constraint from `v1.0` onward. Once locked, systems built on ACP v1.0 will not break when v1.1 ships.
+Backward compatibility is a first-class design constraint from `v1.0` onward. Once locked, systems built on XAP v1.0 will not break when v1.1 ships.
 
 ---
 
-## How To Implement ACP
+## How To Implement XAP
 
-An ACP-compatible system must:
+An XAP-compatible system must:
 
 1. **Produce valid objects** — every object created validates against the corresponding JSON schema
 2. **Sign every object** — using Ed25519. The signing key must correspond to a registered `AgentIdentity`
@@ -193,13 +193,13 @@ An ACP-compatible system must:
 5. **Issue receipts** — every settled `SettlementIntent` produces an `ExecutionReceipt`
 6. **Capture decisions** — every significant decision point produces a `VerityReceipt`
 
-There is no certification process yet. If your system does these six things correctly — it is ACP-compatible. We are working on a compliance test suite (see Contributing below).
+There is no certification process yet. If your system does these six things correctly — it is XAP-compatible. We are working on a compliance test suite (see Contributing below).
 
 ---
 
 ## Contributing
 
-ACP is an early-stage open standard. The most valuable contributions right now are not code — they are thinking.
+XAP is an early-stage open standard. The most valuable contributions right now are not code — they are thinking.
 
 ### What We Need Most
 
@@ -214,22 +214,22 @@ What happens when an agent submits an execution result after the deadline? What 
 Open an issue with the label `edge-case`.
 
 **Vertical-specific schemas**
-ACP v0.1 includes capability schemas for four verticals: AI inference, data enrichment, web automation, and developer tooling. Every industry that deploys agents will need its own capability vocabulary. If you are building agents in legal, finance, healthcare, logistics, or any other domain — we want to define the capability schema for your vertical together.
+XAP v0.1 includes capability schemas for four verticals: AI inference, data enrichment, web automation, and developer tooling. Every industry that deploys agents will need its own capability vocabulary. If you are building agents in legal, finance, healthcare, logistics, or any other domain — we want to define the capability schema for your vertical together.
 
 Open an issue with the label `vertical-schema` and describe your use case.
 
 **Alternative implementation feedback**
-If you are building an ACP-compatible system that is not Agentra Rail — we want to know what was hard to implement, what was unclear, and what you had to invent yourself because the spec did not cover it.
+If you are building an XAP-compatible system that is not Agentra Rail — we want to know what was hard to implement, what was unclear, and what you had to invent yourself because the spec did not cover it.
 
 Open an issue with the label `implementation-feedback`.
 
 **Dispute resolution rules**
-ACP declares that disputes have deterministic resolution — but the spec does not yet fully define what those rules are. This is an open design problem. How should a dispute between two agents be resolved automatically? What inputs matter? What is the fairest deterministic algorithm? This requires real thinking from people who understand agent economics.
+XAP declares that disputes have deterministic resolution — but the spec does not yet fully define what those rules are. This is an open design problem. How should a dispute between two agents be resolved automatically? What inputs matter? What is the fairest deterministic algorithm? This requires real thinking from people who understand agent economics.
 
 Open a discussion with the label `dispute-resolution`.
 
-**ACP Credit monetary policy**
-The spec references ACP Credit as a native settlement unit but does not define its monetary policy — how credits are issued, what they are worth, whether there is a supply cap, and how they are burned. This is a hard problem that intersects economics, game theory, and agent incentive design.
+**XAP Credit monetary policy**
+The spec references XAP Credit as a native settlement unit but does not define its monetary policy — how credits are issued, what they are worth, whether there is a supply cap, and how they are burned. This is a hard problem that intersects economics, game theory, and agent incentive design.
 
 Open a discussion with the label `monetary-policy`.
 
@@ -255,21 +255,21 @@ Open a discussion with the label `verity-legal`.
 
 ## Open Questions
 
-These are the hardest unsolved problems in ACP. If you have deep expertise in any of these — we want to hear from you.
+These are the hardest unsolved problems in XAP. If you have deep expertise in any of these — we want to hear from you.
 
-**ACP Credit monetary policy** — How is ACP Credit issued? Is it earned through completed settlements only? Is there a supply cap? What maintains the peg? What happens if Rail shuts down?
+**XAP Credit monetary policy** — How is XAP Credit issued? Is it earned through completed settlements only? Is there a supply cap? What maintains the peg? What happens if Rail shuts down?
 
 **Verity legal standing** — Which jurisdictions would recognize a `VerityReceipt` replay as admissible evidence? What additional fields or attestations would be required?
 
 **Cross-model credit bridging** — Agents run on different models with different native credit systems. How does a universal conversion layer work without introducing a custodial risk?
 
-**Registry governance** — Who can propose changes to ACP schemas after v1.0 is locked? How are breaking changes decided? Does governance eventually decentralize?
+**Registry governance** — Who can propose changes to XAP schemas after v1.0 is locked? How are breaking changes decided? Does governance eventually decentralize?
 
 **Dispute escalation threshold** — At what transaction value does human arbitration become mandatory? How is this calibrated across different verticals?
 
-**Agent insurance** — Should ACP define a primitive for agent insurance? Who underwrites it? How does the `ExecutionReceipt` interact with an insurance claim?
+**Agent insurance** — Should XAP define a primitive for agent insurance? Who underwrites it? How does the `ExecutionReceipt` interact with an insurance claim?
 
-**DAO transition** — Should ACP governance eventually move to token holders? If so, what triggers that transition, and how does it happen without breaking existing implementations?
+**DAO transition** — Should XAP governance eventually move to token holders? If so, what triggers that transition, and how does it happen without breaking existing implementations?
 
 ---
 
@@ -285,7 +285,7 @@ These are the hardest unsolved problems in ACP. If you have deep expertise in an
 
 ## License
 
-ACP schemas and specification documents are released under the [MIT License](LICENSE).
+XAP schemas and specification documents are released under the [MIT License](LICENSE).
 
 The protocol is free. Forever. The goal is adoption, not control.
 
@@ -293,8 +293,8 @@ The protocol is free. Forever. The goal is adoption, not control.
 
 ## GitHub Topics
 
-`agent-commerce` `autonomous-agents` `acp-protocol` `agent-economy` `ai-agents` `agent-settlement` `agent-identity` `escrow` `multi-agent` `open-standard` `protocol` `agentic-ai` `llm-agents` `agent-infrastructure` `agentra`
+`agent-commerce` `autonomous-agents` `xap-protocol` `agent-economy` `ai-agents` `agent-settlement` `agent-identity` `escrow` `multi-agent` `open-standard` `protocol` `agentic-ai` `llm-agents` `agent-infrastructure` `agentra`
 
 ---
 
-*ACP is maintained by Agentra Labs. The protocol belongs to the community. The reference implementation is [Agentra Rail](https://www.agentralabs.tech).*
+*XAP is maintained by Agentra Labs. The protocol belongs to the community. The reference implementation is [Agentra Rail](https://www.agentralabs.tech).*
